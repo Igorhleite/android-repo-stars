@@ -13,5 +13,6 @@ android {
 }
 
 dependencies {
-
+    implementation project(Modules.home)
+    implementation project(Modules.detail)
 }

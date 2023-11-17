@@ -30,8 +30,16 @@ object Libs {
     const val retrofitConverterGson =
         "com.squareup.retrofit2:converter-gson:${Versions.retrofit_version}"
 
+    //Room
+    const val room = "androidx.room:room-runtime:${Versions.room_version}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room_version}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room_version}"
+
     //Gson
     const val gson = "com.google.code.gson:gson:2.10.1"
+
+    //Paging 3
+    const val paging = "androidx.paging:paging-runtime-ktx:${Versions.paging_version}"
 
     //Coroutines
     const val coroutines =

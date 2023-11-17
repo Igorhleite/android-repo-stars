@@ -59,6 +59,14 @@ dependencies {
     implementation(Libs.retrofit)
     implementation(Libs.retrofitConverterGson)
 
+    //Room
+    implementation(Libs.room)
+    implementation(Libs.roomKtx)
+    kapt(Libs.roomCompiler)
+
+    // Paging 3
+    implementation(Libs.paging)
+
     //Gson
     implementation(Libs.gson)
 
