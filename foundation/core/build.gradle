@@ -1,0 +1,17 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+android {
+    namespace "${Config.applicationId}.foundation.core"
+
+    defaultConfig {
+        buildConfigField "String", "BASE_URL", '"https://api.github.com/"'
+    }
+}
+
+dependencies {
+
+}
