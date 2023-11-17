@@ -14,3 +14,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Repo Trends"
 include ':app'
+include ':foundation'
+include ':foundation:core'
+include ':feature'
+include ':feature:home'
+include ':feature:trends'

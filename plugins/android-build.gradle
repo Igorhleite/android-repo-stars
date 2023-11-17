@@ -1,0 +1,70 @@
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+    compileSdk Config.compileSdk
+
+    defaultConfig {
+        minSdk Config.minSdk
+        targetSdk Config.targetSdk
+        versionCode Config.targetSdk
+        versionName Config.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+        buildConfig = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    // Libs
+    implementation(Libs.coreKtx)
+    implementation(Libs.appcompat)
+    implementation(Libs.material)
+    implementation(Libs.constraintLayout)
+
+    // Dagger Hilt
+    implementation(Libs.hiltAndroid)
+    kapt(Libs.hiltAndroidCompiler)
+
+    //Navigation
+    implementation(Libs.navigation)
+    implementation(Libs.navigationUi)
+
+    // ViewModel and LiveData
+    implementation(Libs.lifeCycleViewModel)
+    implementation(Libs.lifeCycleLiveData)
+    implementation(Libs.lifeCycleRuntimeKtx)
+    implementation(Libs.lifecycleProcess)
+
+    // Retrofit
+    implementation(Libs.retrofit)
+    implementation(Libs.retrofitConverterGson)
+
+    //Gson
+    implementation(Libs.gson)
+
+    //Coroutines
+    implementation(Libs.coroutines)
+
+    // Other Libs
+    implementation(Libs.shimmer)
+}
