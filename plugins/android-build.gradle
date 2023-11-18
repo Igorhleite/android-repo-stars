@@ -60,9 +60,7 @@ dependencies {
     implementation(Libs.retrofitConverterGson)
 
     //Room
-    implementation(Libs.room)
-    implementation(Libs.roomKtx)
-    kapt(Libs.roomCompiler)
+
 
     // Paging 3
     implementation(Libs.paging)
@@ -75,4 +73,5 @@ dependencies {
 
     // Other Libs
     implementation(Libs.shimmer)
+    implementation(Libs.coil)
 }

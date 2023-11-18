@@ -10,5 +10,8 @@ android {
 }
 
 dependencies {
-
+    implementation project(Modules.core)
+    implementation(Libs.room)
+    implementation(Libs.roomKtx)
+    kapt(Libs.roomCompiler)
 }

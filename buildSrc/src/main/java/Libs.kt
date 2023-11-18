@@ -47,6 +47,7 @@ object Libs {
 
     // Other Libs
     const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer_version}"
+    const val coil = "io.coil-kt:coil:${Versions.coil_version}"
 
     object Test {
         const val junitTest = "junit:junit:${Versions.junit_version}"

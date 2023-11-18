@@ -1,4 +1,7 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_error_message">The list is empty.\nTry again later</string>
+    <string name="home_try_again">Try again</string>
+    <string name="home_first_app_name">GIT</string>
+    <string name="home_not_available">Not available</string>
+    <string name="home_second_app_name">STARS</string>
 </resources>
