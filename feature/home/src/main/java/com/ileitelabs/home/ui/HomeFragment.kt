@@ -4,13 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isEmpty
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.paging.CombinedLoadStates
-import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ileitelabs.core.ui.viewmodel.onViewAction
+import com.ileitelabs.core.ui.viewmodel.onViewState
 import com.ileitelabs.home.domain.model.Repository
 import com.ileitelabs.home.ui.adapters.RepositoriesAdapter
 import com.ileitelabs.home.ui.viewmodel.HomeViewAction
@@ -28,7 +30,7 @@ class HomeFragment : Fragment() {
 
     private val repositoriesAdapter by lazy {
         RepositoriesAdapter { repository, _ ->
-            //setOpenRepoUrlInBrowser(repoUrl = repository.repoUrl)
+            viewModel.onRepositoryClicked(repository)
         }
     }
 
@@ -49,6 +51,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecycler()
         setTryAgainButtonAction()
+        addLoadStateAdapter()
         initView()
     }
 
@@ -62,21 +65,34 @@ class HomeFragment : Fragment() {
     }
 
     private fun initView() {
-        viewModel.state.observe(viewLifecycleOwner) {
-            manageRepositoryList(it.data)
+        onViewState(viewModel) { state ->
+            manageRepositoryList(state.data)
+            manageLoading(state.hasLoading)
+            manageError(state.emptyDataError, state.refreshDataError)
         }
-        viewModel.action.observe(viewLifecycleOwner) {
-            when (it) {
-                HomeViewAction.FetchData -> viewModel.obtainSets()
+
+        onViewAction(viewModel) { action ->
+            when (action) {
+                is HomeViewAction.FetchData -> viewModel.obtainSets()
                 else -> {}
             }
         }
     }
 
+    private fun manageError(emptyDataError: Boolean, refreshDataError: Boolean) {
+        binding.screenError.root.isVisible = emptyDataError
+        if (refreshDataError) {
+            Toast.makeText(activity, "Erro ao atualizar os dados", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun manageLoading(hasLoading: Boolean) {
+        binding.pbProgress.isVisible = hasLoading
+    }
+
     private fun manageRepositoryList(repositories: PagingData<Repository>?) {
         repositories?.let {
             repositoriesAdapter.submitData(lifecycle, it)
-            addLoadStateAdapter()
         }
     }
 
@@ -88,18 +104,10 @@ class HomeFragment : Fragment() {
 
     private fun addLoadStateAdapter() {
         repositoriesAdapter.addLoadStateListener {
-            it.loadStatesRules()
-        }
-    }
-
-    private fun CombinedLoadStates.loadStatesRules() {
-        binding.apply {
-            val isLoading = refresh is LoadState.Loading
-            val isError = refresh is LoadState.Error
-
-            screenError.root.isVisible =
-                (isError) && repositoriesAdapter.itemCount == 0
-            pbProgress.isVisible = isLoading
+            viewModel.manageAdapterLoadStates(
+                loadState = it,
+                isAdapterEmpty = repositoriesAdapter.itemCount == 0
+            )
         }
     }
 }
