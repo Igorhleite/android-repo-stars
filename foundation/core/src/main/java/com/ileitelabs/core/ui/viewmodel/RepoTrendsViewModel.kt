@@ -10,7 +10,7 @@ abstract class RepoTrendsViewModel<S, A>(
     private val _state = MutableLiveData(initialState)
     val state = _state
 
-    private val _action = MutableLiveData<A>()
+    private val _action = MutableLiveData<A?>()
     val action = _action
 
     protected fun onState(updateViewState: (S) -> S) {
@@ -19,5 +19,6 @@ abstract class RepoTrendsViewModel<S, A>(
 
     protected fun onAction(doAction: () -> A) {
         _action.value = doAction()
+        _action.value = null
     }
 }

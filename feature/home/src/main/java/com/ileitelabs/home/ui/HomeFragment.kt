@@ -1,14 +1,16 @@
 package com.ileitelabs.home.ui
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.isEmpty
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ileitelabs.core.ui.viewmodel.onViewAction
@@ -27,6 +29,8 @@ class HomeFragment : Fragment() {
     private val binding: HomeFragmentBinding get() = _binding!!
 
     private val viewModel: HomeViewModel by viewModels()
+
+    private val navController by lazy { findNavController() }
 
     private val repositoriesAdapter by lazy {
         RepositoriesAdapter { repository, _ ->
@@ -74,9 +78,15 @@ class HomeFragment : Fragment() {
         onViewAction(viewModel) { action ->
             when (action) {
                 is HomeViewAction.FetchData -> viewModel.obtainSets()
+                is HomeViewAction.NavigateToDetail -> navigateToDetail(action.uri)
                 else -> {}
             }
         }
+    }
+
+    private fun navigateToDetail(uri: Uri) {
+        val request = NavDeepLinkRequest.Builder.fromUri(uri).build()
+        navController.navigate(request)
     }
 
     private fun manageError(emptyDataError: Boolean, refreshDataError: Boolean) {

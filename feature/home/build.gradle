@@ -5,12 +5,15 @@ plugins {
 apply from: "$rootDir/plugins/android-build.gradle"
 
 android {
-    namespace "${Config.applicationId}.feature.home"
     resourcePrefix "home"
 }
 
 dependencies {
+    //Modules
     implementation project(Modules.core)
+    implementation project(Modules.navigation)
+
+    //Libs
     implementation(Libs.room)
     implementation(Libs.roomKtx)
     kapt(Libs.roomCompiler)

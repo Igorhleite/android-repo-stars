@@ -1,12 +1,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/trands"
-    app:startDestination="@id/homeFragment">
+    android:id="@+id/detail"
+    app:startDestination="@id/repoDetail">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/repoDetail"
         android:name="com.ileitelabs.trends.ui.RepoDetailFragment"
-        android:label="Detail"
-        tools:layout="@layout/detail_fragment_repo" />
+        android:label="Detail">
+
+        <deepLink app:uri="repoTrends://detail/{repositoryName}/{ownerName}" />
+        <argument
+            android:name="repositoryName"
+            app:argType="string" />
+        <argument
+            android:name="ownerName"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

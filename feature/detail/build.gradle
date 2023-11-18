@@ -5,10 +5,11 @@ plugins {
 apply from: "$rootDir/plugins/android-build.gradle"
 
 android {
-    namespace "${Config.applicationId}.feature.detail"
     resourcePrefix "detail"
 }
 
 dependencies {
-
+    //Modules
+    implementation project(Modules.core)
+    implementation project(Modules.navigation)
 }
