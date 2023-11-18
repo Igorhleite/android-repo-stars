@@ -9,6 +9,7 @@ import androidx.paging.cachedIn
 import com.ileitelabs.core.ui.viewmodel.RepoTrendsViewModel
 import com.ileitelabs.home.domain.model.Repository
 import com.ileitelabs.home.domain.usecase.GetTrendingUseCase
+import com.ileitelabs.navigation.deeplink.RepoTrendsDeepLink
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.catch
@@ -21,7 +22,8 @@ import javax.inject.Inject
 @HiltViewModel
 internal class HomeViewModel @Inject constructor(
     private val useCase: GetTrendingUseCase,
-    private val dispatcher: CoroutineDispatcher
+    private val dispatcher: CoroutineDispatcher,
+    private val deepLinkBuilder: RepoTrendsDeepLink
 ) : RepoTrendsViewModel<HomeViewState, HomeViewAction>(HomeViewState()) {
 
     init {
@@ -66,7 +68,12 @@ internal class HomeViewModel @Inject constructor(
     }
 
     fun onRepositoryClicked(repository: Repository) {
-        onAction { HomeViewAction.NavigateToDetail(repository) }
+        val uri = deepLinkBuilder.deepLinkToRepoDetail(
+            repositoryName = repository.owner.name.orEmpty(),
+            ownerName = repository.name.orEmpty()
+        )
+
+        onAction { HomeViewAction.NavigateToDetail(uri) }
     }
 
     fun onTryAgainClicked() {

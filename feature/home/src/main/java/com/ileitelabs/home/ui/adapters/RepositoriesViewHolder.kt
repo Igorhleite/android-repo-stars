@@ -6,6 +6,7 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.ileitelabs.home.domain.model.Repository
 import com.ileitelabs.repotrends.feature.home.R
+import com.ileitelabs.repotrends.foundation.designsystem.R as DesignSystemR
 import com.ileitelabs.repotrends.feature.home.databinding.HomeRepositoryItemBinding
 
 class RepositoriesViewHolder(
@@ -21,8 +22,8 @@ class RepositoriesViewHolder(
             tvForksValue.setSafeText(repository.forks.toString())
             ivRepositoryImage.load(repository.owner.img) {
                 crossfade(true)
-                placeholder(R.drawable.ic_placeholder)
-                error(R.drawable.ic_placeholder)
+                placeholder(DesignSystemR.drawable.ic_placeholder)
+                error(DesignSystemR.drawable.ic_placeholder)
                 transformations(CircleCropTransformation())
             }
             root.setOnClickListener {

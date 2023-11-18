@@ -59,8 +59,10 @@ dependencies {
     implementation(Libs.retrofit)
     implementation(Libs.retrofitConverterGson)
 
-    //Room
-
+    //OkHttp
+    api(platform(Libs.okhttpBom))
+    api(Libs.okhttp)
+    api(Libs.okhttpLogging)
 
     // Paging 3
     implementation(Libs.paging)

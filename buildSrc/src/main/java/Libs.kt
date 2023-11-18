@@ -30,6 +30,11 @@ object Libs {
     const val retrofitConverterGson =
         "com.squareup.retrofit2:converter-gson:${Versions.retrofit_version}"
 
+    // OkHttp
+    const val okhttpBom = "com.squareup.okhttp3:okhttp-bom:4.9.0"
+    const val okhttp = "com.squareup.okhttp3:okhttp"
+    const val okhttpLogging = "com.squareup.okhttp3:logging-interceptor"
+
     //Room
     const val room = "androidx.room:room-runtime:${Versions.room_version}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room_version}"

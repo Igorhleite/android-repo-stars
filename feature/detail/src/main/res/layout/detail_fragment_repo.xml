@@ -1,13 +1,21 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flipper_repo_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:measureAllChildren="false"
     tools:context="com.ileitelabs.trends.ui.RepoDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <include layout="@layout/detail_fragment_repo_loading_include" />
 
-</FrameLayout>
+    <include
+        android:id="@+id/include_view_repo_detail_success_state"
+        layout="@layout/detail_fragment_repo_content_include" />
+
+    <com.ileitelabs.designsystem.error.RepoTrendsError
+        android:id="@+id/detail_repo_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</ViewFlipper>

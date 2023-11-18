@@ -1,6 +1,6 @@
 package com.ileitelabs.home.di
 
-import com.ileitelabs.home.data.service.RepoTrendsService
+import com.ileitelabs.home.data.service.HomeService
 import com.ileitelabs.repotrends.foundation.core.BuildConfig
 import dagger.Module
 import dagger.Provides
@@ -18,12 +18,12 @@ object HomeNetworkModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         converterFactory: GsonConverterFactory
-    ): RepoTrendsService {
+    ): HomeService {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .build()
-            .create(RepoTrendsService::class.java)
+            .create(HomeService::class.java)
     }
 }
