@@ -4,8 +4,7 @@ import com.ileitelabs.home.data.datasource.remote.dto.RepoTrendsResponseDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface RepoTrendsService {
-
+interface HomeService {
     @GET("search/repositories")
     suspend fun getRepositories(
         @Query("q") q: String = "language:kotlin",

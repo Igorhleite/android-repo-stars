@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
         initRecycler()
         setTryAgainButtonAction()
         addLoadStateAdapter()
-        initView()
+        addObservables()
     }
 
     private fun initRecycler() {
@@ -68,7 +68,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun initView() {
+    private fun addObservables() {
         onViewState(viewModel) { state ->
             manageRepositoryList(state.data)
             manageLoading(state.hasLoading)
@@ -90,7 +90,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun manageError(emptyDataError: Boolean, refreshDataError: Boolean) {
-        binding.screenError.root.isVisible = emptyDataError
+        binding.screenError.isVisible = emptyDataError
         if (refreshDataError) {
             Toast.makeText(activity, "Erro ao atualizar os dados", Toast.LENGTH_SHORT).show()
         }
@@ -107,7 +107,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setTryAgainButtonAction() {
-        binding.screenError.btErrorRefresh.setOnClickListener {
+        binding.screenError.onClickTryAgainButton {
             viewModel.onTryAgainClicked()
         }
     }

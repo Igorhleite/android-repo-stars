@@ -4,7 +4,7 @@
     android:id="@+id/detail"
     app:startDestination="@id/repoDetail">
 
-    <fragment
+    <dialog
         android:id="@+id/repoDetail"
         android:name="com.ileitelabs.trends.ui.RepoDetailFragment"
         android:label="Detail">
@@ -16,6 +16,6 @@
         <argument
             android:name="ownerName"
             app:argType="string" />
-    </fragment>
+    </dialog>
 
 </navigation>

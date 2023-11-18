@@ -6,4 +6,5 @@ object Modules {
     // Foundation
     const val core = ":foundation:core"
     const val navigation = ":foundation:navigation"
+    const val designSystem = ":foundation:designsystem"
 }

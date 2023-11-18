@@ -17,8 +17,13 @@ import java.util.concurrent.TimeUnit
 object NetworkModule {
 
     @Provides
+    fun provideAuthInterceptor(): AuthInterceptor {
+        return AuthInterceptor()
+    }
+
+    @Provides
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor().apply{
+        return HttpLoggingInterceptor().apply {
             setLevel(
                 if (BuildConfig.DEBUG) {
                     HttpLoggingInterceptor.Level.BODY
@@ -26,11 +31,14 @@ object NetworkModule {
             )
         }
     }
+
     @Provides
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
+        authInterceptor: AuthInterceptor
     ): OkHttpClient {
         return OkHttpClient.Builder()
+            .addInterceptor(authInterceptor)
             .addInterceptor(loggingInterceptor)
             .readTimeout(50, TimeUnit.SECONDS)
             .connectTimeout(50, TimeUnit.SECONDS)

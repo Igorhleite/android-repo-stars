@@ -1,7 +1,7 @@
-package com.ileitelabs.home.di
+package com.ileitelabs.trends.di
 
-import com.ileitelabs.home.data.service.HomeService
 import com.ileitelabs.repotrends.foundation.core.BuildConfig
+import com.ileitelabs.trends.data.service.DetailService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,18 +12,18 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 @InstallIn(SingletonComponent::class)
-object HomeNetworkModule {
+object DetailNetworkModule {
 
     @Provides
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         converterFactory: GsonConverterFactory
-    ): HomeService {
+    ): DetailService {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .build()
-            .create(HomeService::class.java)
+            .create(DetailService::class.java)
     }
 }

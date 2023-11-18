@@ -1,4 +1,7 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detail_owner_img_label">Imagem do criador do repositório.</string>
+    <string name="detail_owner_label">Owner: %s</string>
+    <string name="detail_owner_name_label">Name: %s</string>
+    <string name="detail_description_label">Description: %s</string>
+    <string name="detail_available_label">Available on:\n%s</string>
 </resources>
