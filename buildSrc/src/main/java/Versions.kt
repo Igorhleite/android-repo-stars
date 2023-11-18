@@ -17,11 +17,20 @@ object Versions {
     //Retrofit
     const val retrofit_version = "2.9.0"
 
+    //Room
+    const val room_version = "2.4.0-alpha03"
+
     //Coroutines
     const val coroutines_version = "1.5.1"
 
+    //Paging
+    const val paging_version = "3.1.1"
+
     //Shimmer
     const val shimmer_version = "0.5.0"
+
+    //Coil
+    const val coil_version = "1.4.0"
 
     // Test libs versions
     const val junit_version = "4.13.2"

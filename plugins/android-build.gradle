@@ -59,6 +59,12 @@ dependencies {
     implementation(Libs.retrofit)
     implementation(Libs.retrofitConverterGson)
 
+    //Room
+
+
+    // Paging 3
+    implementation(Libs.paging)
+
     //Gson
     implementation(Libs.gson)
 
@@ -67,4 +73,5 @@ dependencies {
 
     // Other Libs
     implementation(Libs.shimmer)
+    implementation(Libs.coil)
 }
