@@ -4,7 +4,6 @@
     android:id="@+id/flipper_repo_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:measureAllChildren="false"
     tools:context="com.ileitelabs.trends.ui.RepoDetailFragment">
 
     <include layout="@layout/detail_fragment_repo_loading_include" />
@@ -16,6 +15,6 @@
     <com.ileitelabs.designsystem.error.RepoTrendsError
         android:id="@+id/detail_repo_error"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
 </ViewFlipper>

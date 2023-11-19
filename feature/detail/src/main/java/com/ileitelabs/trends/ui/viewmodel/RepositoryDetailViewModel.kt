@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.ileitelabs.core.ui.viewmodel.RepoTrendsViewModel
 import com.ileitelabs.trends.domain.model.RepositoryDetail
 import com.ileitelabs.trends.domain.usecase.GetRepositoryDetail
+import com.ileitelabs.trends.ui.viewmodel.RepositoryDetailViewState.RepositoryDetailState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.catch
