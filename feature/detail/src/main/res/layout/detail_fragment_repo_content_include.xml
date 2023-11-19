@@ -68,15 +68,19 @@
         app:layout_constraintTop_toBottomOf="@id/repo_description_tv"
         tools:text="124" />
 
-    <TextView
-        android:id="@+id/repo_url_tv"
+    <Button
+        android:id="@+id/repo_check_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
         android:layout_marginTop="12dp"
         android:paddingHorizontal="24dp"
+        android:text="@string/detailCheck"
+        android:backgroundTint="@color/home_black"
+        android:textColor="@color/home_white"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/repo_stars_tv"
-        tools:text="Available: https://google.com" />
+        app:layout_constraintTop_toBottomOf="@id/repo_stars_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

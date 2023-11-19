@@ -4,4 +4,5 @@
     <string name="detail_owner_name_label">Name: %s</string>
     <string name="detail_description_label">Description: %s</string>
     <string name="detail_available_label">Available on:\n%s</string>
+    <string name="detailCheck">check</string>
 </resources>
