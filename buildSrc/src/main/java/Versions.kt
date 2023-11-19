@@ -33,7 +33,11 @@ object Versions {
     const val coil_version = "1.4.0"
 
     // Test libs versions
-    const val junit_version = "4.13.2"
-    const val androidxJunit_version = "1.1.5"
-    const val espresso_version = "3.5.1"
+    const val junit_version = "5.5.2"
+    const val mockito_version = "4.3.1"
+    const val core_testing_version = "2.0.0"
+    const val coroutines_test_version = "1.6.1"
+    const val mockito_kotlin_version = "2.2.0"
+    const val ext_junit_version = "1.1.2"
+    const val espresso_version = "3.3.0"
 }

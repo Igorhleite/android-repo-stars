@@ -77,7 +77,7 @@ class HomeFragment : Fragment() {
 
         onViewAction(viewModel) { action ->
             when (action) {
-                is HomeViewAction.FetchData -> viewModel.obtainSets()
+                is HomeViewAction.FetchData -> viewModel.obtainRepositories()
                 is HomeViewAction.NavigateToDetail -> navigateToDetail(action.uri)
                 else -> {}
             }
@@ -115,7 +115,7 @@ class HomeFragment : Fragment() {
     private fun addLoadStateAdapter() {
         repositoriesAdapter.addLoadStateListener {
             viewModel.manageAdapterLoadStates(
-                loadState = it,
+                loadState = it.refresh,
                 isAdapterEmpty = repositoriesAdapter.itemCount == 0
             )
         }

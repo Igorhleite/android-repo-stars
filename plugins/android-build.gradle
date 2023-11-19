@@ -76,4 +76,15 @@ dependencies {
     // Other Libs
     implementation(Libs.shimmer)
     implementation(Libs.coil)
+
+    //Test
+    testImplementation(Libs.junit)
+    testImplementation(Libs.mockito)
+    testImplementation(Libs.coreTesting)
+    testImplementation(Libs.coroutinesTest)
+    testImplementation(Libs.mockitoKotlin)
+
+    androidTestImplementation(Libs.extJunit)
+    androidTestImplementation(Libs.espresso)
+
 }

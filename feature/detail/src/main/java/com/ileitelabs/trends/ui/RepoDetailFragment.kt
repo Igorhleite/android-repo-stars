@@ -14,9 +14,9 @@ import com.ileitelabs.core.ui.viewmodel.onViewState
 import com.ileitelabs.repotrends.feature.detail.R
 import com.ileitelabs.repotrends.feature.detail.databinding.DetailFragmentRepoBinding
 import com.ileitelabs.trends.domain.model.RepositoryDetail
-import com.ileitelabs.trends.ui.viewmodel.RepositoryDetailState
 import com.ileitelabs.trends.ui.viewmodel.RepositoryDetailViewAction
 import com.ileitelabs.trends.ui.viewmodel.RepositoryDetailViewModel
+import com.ileitelabs.trends.ui.viewmodel.RepositoryDetailViewState.RepositoryDetailState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

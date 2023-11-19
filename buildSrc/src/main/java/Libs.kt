@@ -54,10 +54,18 @@ object Libs {
     const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer_version}"
     const val coil = "io.coil-kt:coil:${Versions.coil_version}"
 
-    object Test {
-        const val junitTest = "junit:junit:${Versions.junit_version}"
-        const val espressoCoreTest =
-            "androidx.test.espresso:espresso-core:${Versions.espresso_version}"
-        const val extJunitTest = "androidx.test.ext:junit:${Versions.androidxJunit_version}"
-    }
+
+    // Unit tests
+    const val junit = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit_version}"
+    const val mockito = "org.mockito:mockito-core:${Versions.mockito_version}"
+    const val coreTesting = "androidx.arch.core:core-testing:${Versions.core_testing_version}"
+    const val coroutinesTest =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines_test_version}"
+    const val mockitoKotlin =
+        "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockito_kotlin_version}"
+
+    // Instrumentation tests
+    const val extJunit = "androidx.test.ext:junit:${Versions.ext_junit_version}"
+    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso_version}"
+
 }
