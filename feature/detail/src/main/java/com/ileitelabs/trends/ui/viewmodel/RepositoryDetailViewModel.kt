@@ -17,7 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 internal class RepositoryDetailViewModel @Inject constructor(
-    private val dispatcher: CoroutineDispatcher, private val useCase: GetRepositoryDetail
+    private val dispatcher: CoroutineDispatcher,
+    private val useCase: GetRepositoryDetail
 ) : RepoTrendsViewModel<RepositoryDetailViewState, RepositoryDetailViewAction>(
     RepositoryDetailViewState()
 ) {
