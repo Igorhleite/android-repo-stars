@@ -1,4 +1,4 @@
-RepoTrends - Projeto Android MVVM com Múltiplos Módulos
+RepoTrends
 
 O aplicativo enumera os repositórios mais populares no GitHub que utilizam a linguagem Kotlin e têm o maior número de stars.
 
