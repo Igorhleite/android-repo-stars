@@ -65,4 +65,8 @@ internal class RepositoryDetailViewModel @Inject constructor(
     fun onTryAgainClicked() {
         onAction { RepositoryDetailViewAction.FetchData }
     }
+
+    fun onCheckRepoClicked(url: String) {
+        onAction { RepositoryDetailViewAction.GoToExternalUrl(url) }
+    }
 }

@@ -1,5 +1,7 @@
 package com.ileitelabs.trends.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -70,10 +72,15 @@ class RepoDetailFragment : BottomSheetDialogFragment() {
                 is RepositoryDetailViewAction.FetchData -> viewModel.obtainRepositoryDetail(
                     args.repositoryName, args.ownerName
                 )
+                is  RepositoryDetailViewAction.GoToExternalUrl -> openUrlInBrowser(it.url)
 
                 else -> {}
             }
         }
+    }
+
+    private fun openUrlInBrowser(url: String) {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
     }
 
     private fun manageViewState(state: RepositoryDetailState) {
@@ -95,8 +102,11 @@ class RepoDetailFragment : BottomSheetDialogFragment() {
     }
 
     private fun setRepositoryUrl(htmlUrl: String?) {
-        binding.includeViewRepoDetailSuccessState.repoUrlTv.text =
-            getString(R.string.detail_available_label, htmlUrl)
+        binding.includeViewRepoDetailSuccessState.repoCheckBtn.setOnClickListener {
+            htmlUrl?.let {
+                viewModel.onCheckRepoClicked(it)
+            }
+        }
     }
 
     private fun setRepositoryStars(stars: String?) {
