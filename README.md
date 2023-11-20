@@ -8,8 +8,8 @@ O projeto segue a arquitetura MVVM (Model-View-ViewModel). Sua estrutura é orga
 
 <h2>Módulos</h2>
 
+![Untitled Diagram drawio](https://github.com/Igorhleite/android-repo-stars/assets/56982442/a35469ff-aaf5-4d78-a85c-c31d2a66c080)
 
-![Untitled Diagram drawio](https://github.com/Igorhleite/android-repo-stars/assets/56982442/745cc344-69d6-41ed-b724-8d3d121c7c9b)
 
 O projeto está dividido nos seguintes módulos:
 
