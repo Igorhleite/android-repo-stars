@@ -1,8 +1,8 @@
 package com.ileitelabs.home.ui.viewmodel
 
-import android.net.Uri
-
 internal sealed class HomeViewAction {
-    data class NavigateToDetail(val uri: Uri) : HomeViewAction()
+    data class NavigateToDetail(val repositoryName: String, val ownerName: String) :
+        HomeViewAction()
+
     object FetchData : HomeViewAction()
 }

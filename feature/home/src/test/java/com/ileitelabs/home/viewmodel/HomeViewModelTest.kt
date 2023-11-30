@@ -9,7 +9,6 @@ import com.ileitelabs.home.domain.usecase.GetTrendingUseCase
 import com.ileitelabs.home.ui.viewmodel.HomeViewAction
 import com.ileitelabs.home.ui.viewmodel.HomeViewModel
 import com.ileitelabs.home.ui.viewmodel.HomeViewState
-import com.ileitelabs.navigation.deeplink.RepoTrendsDeepLink
 import com.nhaarman.mockitokotlin2.argumentCaptor
 import com.nhaarman.mockitokotlin2.times
 import kotlinx.coroutines.Dispatchers
@@ -45,16 +44,13 @@ internal class HomeViewModelTest {
     @Mock
     private lateinit var useCaseMock: GetTrendingUseCase
 
-    @Mock
-    private lateinit var deepLinkMock: RepoTrendsDeepLink
-
     private lateinit var subject: HomeViewModel
 
     @Before
     fun setup() {
         MockitoAnnotations.openMocks(this)
         Dispatchers.setMain(testDispatcher)
-        subject = HomeViewModel(useCaseMock, testDispatcher, deepLinkMock)
+        subject = HomeViewModel(useCaseMock, testDispatcher)
         subject.state.observeForever(observerState)
         subject.action.observeForever(observerAction)
     }
