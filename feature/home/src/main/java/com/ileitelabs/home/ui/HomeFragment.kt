@@ -1,6 +1,5 @@
 package com.ileitelabs.home.ui
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,8 +17,10 @@ import com.ileitelabs.home.domain.model.Repository
 import com.ileitelabs.home.ui.adapters.RepositoriesAdapter
 import com.ileitelabs.home.ui.viewmodel.HomeViewAction
 import com.ileitelabs.home.ui.viewmodel.HomeViewModel
+import com.ileitelabs.navigation.RepoTrendsNavigation
 import com.ileitelabs.repotrends.feature.home.databinding.HomeFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -31,6 +31,9 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
 
     private val navController by lazy { findNavController() }
+
+    @Inject
+    lateinit var navigator: RepoTrendsNavigation
 
     private val repositoriesAdapter by lazy {
         RepositoriesAdapter { repository, _ ->
@@ -78,15 +81,18 @@ class HomeFragment : Fragment() {
         onViewAction(viewModel) { action ->
             when (action) {
                 is HomeViewAction.FetchData -> viewModel.obtainRepositories()
-                is HomeViewAction.NavigateToDetail -> navigateToDetail(action.uri)
+                is HomeViewAction.NavigateToDetail -> navigateToDetail(
+                    action.repositoryName,
+                    action.ownerName
+                )
+
                 else -> {}
             }
         }
     }
 
-    private fun navigateToDetail(uri: Uri) {
-        val request = NavDeepLinkRequest.Builder.fromUri(uri).build()
-        navController.navigate(request)
+    private fun navigateToDetail(repository: String, ownerName: String) {
+        navigator.navigateToRepositoryDetail(navController, repository, ownerName)
     }
 
     private fun manageError(emptyDataError: Boolean, refreshDataError: Boolean) {
