@@ -23,11 +23,15 @@ android {
     }
     buildFeatures {
         viewBinding true
-        buildConfig = true
+        buildConfig  true
+        compose true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.2.0-rc02'
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -44,6 +48,16 @@ dependencies {
     // Dagger Hilt
     implementation(Libs.hiltAndroid)
     kapt(Libs.hiltAndroidCompiler)
+
+    // Compose
+    implementation platform(Libs.composeBom)
+    implementation(Libs.androidXCompose)
+    implementation(Libs.androidXComposeUi)
+    implementation(Libs.androidXComposeFoundation)
+    implementation(Libs.androidXComposeFoundationLayout)
+    implementation(Libs.androidXComposeMaterial)
+    implementation(Libs.androidXComposeLiveData)
+    implementation(Libs.androidXComposeUiTooling)
 
     //Navigation
     implementation(Libs.navigation)

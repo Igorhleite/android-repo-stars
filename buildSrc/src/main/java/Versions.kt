@@ -8,6 +8,9 @@ object Versions {
     //Navigation
     const val nav_version = "2.4.0-alpha05"
 
+    //Compose
+    const val compose_bom_version = "2022.10.00"
+
     // ViewModel and LiveData
     const val lifecycle_version = "2.5.1"
 
@@ -17,6 +20,9 @@ object Versions {
     //Retrofit
     const val retrofit_version = "2.9.0"
 
+    //OkHttp Bom
+    const val okhttp_bom_version = "4.9.0"
+
     //Room
     const val room_version = "2.4.0-alpha03"
 
@@ -25,6 +31,9 @@ object Versions {
 
     //Paging
     const val paging_version = "3.1.1"
+
+    //Gson
+    const val gson_version = "2.10.1"
 
     //Shimmer
     const val shimmer_version = "0.5.0"

@@ -6,6 +6,17 @@ object Libs {
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout_version}"
 
+    // Compose
+    const val composeBom = "androidx.compose:compose-bom:${Versions.compose_bom_version}"
+
+    const val androidXCompose = "androidx.compose.runtime:runtime"
+    const val androidXComposeUi = "androidx.compose.ui:ui"
+    const val androidXComposeFoundation = "androidx.compose.foundation:foundation"
+    const val androidXComposeFoundationLayout = "androidx.compose.foundation:foundation-layout"
+    const val androidXComposeMaterial = "androidx.compose.material:material"
+    const val androidXComposeLiveData = "androidx.compose.runtime:runtime-livedata"
+    const val androidXComposeUiTooling = "androidx.compose.ui:ui-tooling"
+
     //Navigation
     const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.nav_version}"
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.nav_version}"
@@ -31,7 +42,7 @@ object Libs {
         "com.squareup.retrofit2:converter-gson:${Versions.retrofit_version}"
 
     // OkHttp
-    const val okhttpBom = "com.squareup.okhttp3:okhttp-bom:4.9.0"
+    const val okhttpBom = "com.squareup.okhttp3:okhttp-bom:${Versions.okhttp_bom_version}"
     const val okhttp = "com.squareup.okhttp3:okhttp"
     const val okhttpLogging = "com.squareup.okhttp3:logging-interceptor"
 
@@ -41,7 +52,7 @@ object Libs {
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room_version}"
 
     //Gson
-    const val gson = "com.google.code.gson:gson:2.10.1"
+    const val gson = "com.google.code.gson:gson:${Versions.gson_version}"
 
     //Paging 3
     const val paging = "androidx.paging:paging-runtime-ktx:${Versions.paging_version}"
