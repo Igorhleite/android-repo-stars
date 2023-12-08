@@ -1,4 +1,4 @@
-package com.ileitelabs.home.ui
+package com.ileitelabs.home.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ileitelabs.core.ui.viewmodel.onViewAction
 import com.ileitelabs.core.ui.viewmodel.onViewState
 import com.ileitelabs.home.domain.model.Repository
-import com.ileitelabs.home.ui.adapters.RepositoriesAdapter
-import com.ileitelabs.home.ui.viewmodel.HomeViewAction
-import com.ileitelabs.home.ui.viewmodel.HomeViewModel
+import com.ileitelabs.home.presentation.adapters.RepositoriesAdapter
+import com.ileitelabs.home.presentation.viewmodel.HomeViewAction
+import com.ileitelabs.home.presentation.viewmodel.HomeViewModel
 import com.ileitelabs.navigation.RepoTrendsNavigation
 import com.ileitelabs.repotrends.feature.home.databinding.HomeFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint

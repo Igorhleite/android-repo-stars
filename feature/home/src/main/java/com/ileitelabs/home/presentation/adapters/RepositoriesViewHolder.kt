@@ -1,4 +1,4 @@
-package com.ileitelabs.home.ui.adapters
+package com.ileitelabs.home.presentation.adapters
 
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView

@@ -1,11 +1,11 @@
-package com.ileitelabs.trends.ui.viewmodel
+package com.ileitelabs.trends.presentation.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.ileitelabs.trends.domain.model.RepositoryDetail
 import com.ileitelabs.trends.domain.model.RepositoryDetailOwner
 import com.ileitelabs.trends.domain.usecase.GetRepositoryDetail
-import com.ileitelabs.trends.ui.viewmodel.RepositoryDetailViewState.RepositoryDetailState
+import com.ileitelabs.trends.presentation.viewmodel.RepositoryDetailViewState.RepositoryDetailState
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.times
 import kotlinx.coroutines.Dispatchers

@@ -8,20 +8,22 @@ import javax.inject.Inject
 class RepoDetailMapperImpl @Inject constructor(): RepoDetailMapper {
     override fun fromDtoToModel(response: RepositoryDetailsResponseDto): RepositoryDetail {
         return RepositoryDetail(
-            name = response.name,
-            fullName = response.fullName,
+            name = response.name.orEmpty(),
+            fullName = response.fullName.orEmpty(),
             owner = mapOwner(response.owner),
-            htmlUrl = response.htmlUrl,
-            description = response.description,
-            stars = response.stars.toString()
+            htmlUrl = response.htmlUrl.orEmpty(),
+            description = response.description.orEmpty(),
+            stars = response.stars.toString(),
+            watchers = response.watchers.toString(),
+            issues = response.issues.toString()
         )
     }
 
-    private fun mapOwner(owner: RepositoryDetailsResponseDto.Owner): RepositoryDetailOwner {
+    private fun mapOwner(owner: RepositoryDetailsResponseDto.Owner?): RepositoryDetailOwner {
         return RepositoryDetailOwner(
-            login = owner.login,
-            avatarUrl = owner.avatarUrl,
-            htmlUrl = owner.htmlUrl
+            login = owner?.login.orEmpty(),
+            avatarUrl = owner?.avatarUrl.orEmpty(),
+            htmlUrl = owner?.htmlUrl.orEmpty()
         )
     }
 }

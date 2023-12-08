@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:paddingBottom="48dp"
     android:paddingHorizontal="24dp"
-    tools:context="com.ileitelabs.trends.ui.RepoDetailFragment">
+    tools:context="com.ileitelabs.trends.presentation.RepoDetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

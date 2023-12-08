@@ -13,9 +13,9 @@ object Libs {
     const val androidXComposeUi = "androidx.compose.ui:ui"
     const val androidXComposeFoundation = "androidx.compose.foundation:foundation"
     const val androidXComposeFoundationLayout = "androidx.compose.foundation:foundation-layout"
-    const val androidXComposeMaterial = "androidx.compose.material:material"
     const val androidXComposeLiveData = "androidx.compose.runtime:runtime-livedata"
     const val androidXComposeUiTooling = "androidx.compose.ui:ui-tooling"
+    const val material3 = "androidx.compose.material3:material3"
 
     //Navigation
     const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.nav_version}"
@@ -64,6 +64,7 @@ object Libs {
     // Other Libs
     const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer_version}"
     const val coil = "io.coil-kt:coil:${Versions.coil_version}"
+    const val coil_compose = "io.coil-kt:coil-compose:${Versions.coil_compose_version}"
 
 
     // Unit tests

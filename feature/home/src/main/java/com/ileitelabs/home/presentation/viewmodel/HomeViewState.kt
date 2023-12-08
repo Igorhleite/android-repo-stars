@@ -1,4 +1,4 @@
-package com.ileitelabs.home.ui.viewmodel
+package com.ileitelabs.home.presentation.viewmodel
 
 import androidx.paging.PagingData
 import com.ileitelabs.home.domain.model.Repository

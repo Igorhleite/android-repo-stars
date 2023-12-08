@@ -1,11 +1,11 @@
-package com.ileitelabs.trends.ui.viewmodel
+package com.ileitelabs.trends.presentation.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.ileitelabs.core.ui.viewmodel.RepoTrendsViewModel
 import com.ileitelabs.trends.domain.model.RepositoryDetail
 import com.ileitelabs.trends.domain.usecase.GetRepositoryDetail
-import com.ileitelabs.trends.ui.viewmodel.RepositoryDetailViewState.RepositoryDetailState
+import com.ileitelabs.trends.presentation.viewmodel.RepositoryDetailViewState.RepositoryDetailState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.catch

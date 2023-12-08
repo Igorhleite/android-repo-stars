@@ -5,6 +5,8 @@ data class RepositoryDetail(
     val fullName: String,
     val owner: RepositoryDetailOwner,
     val htmlUrl: String,
-    val description: String?,
-    val stars: String?
+    val description: String,
+    val stars: String,
+    val watchers: String,
+    val issues: String
 )

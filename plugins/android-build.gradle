@@ -55,9 +55,9 @@ dependencies {
     implementation(Libs.androidXComposeUi)
     implementation(Libs.androidXComposeFoundation)
     implementation(Libs.androidXComposeFoundationLayout)
-    implementation(Libs.androidXComposeMaterial)
     implementation(Libs.androidXComposeLiveData)
     implementation(Libs.androidXComposeUiTooling)
+    implementation(Libs.material3)
 
     //Navigation
     implementation(Libs.navigation)
@@ -90,6 +90,7 @@ dependencies {
     // Other Libs
     implementation(Libs.shimmer)
     implementation(Libs.coil)
+    implementation(Libs.coil_compose)
 
     //Test
     testImplementation(Libs.junit)

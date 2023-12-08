@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.compose.ui.platform.ComposeView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/flipper_repo_detail"
+    android:id="@+id/compose_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ileitelabs.trends.ui.RepoDetailFragment">
-
-    <include layout="@layout/detail_fragment_repo_loading_include" />
-
-    <include
-        android:id="@+id/include_view_repo_detail_success_state"
-        layout="@layout/detail_fragment_repo_content_include" />
-
-    <com.ileitelabs.designsystem.error.RepoTrendsError
-        android:id="@+id/detail_repo_error"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-</ViewFlipper>
+    tools:context="com.ileitelabs.trends.presentation.RepoDetailFragment" />

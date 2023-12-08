@@ -1,4 +1,4 @@
-package com.ileitelabs.home.ui.adapters
+package com.ileitelabs.home.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

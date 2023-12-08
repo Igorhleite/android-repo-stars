@@ -4,9 +4,9 @@
     android:id="@+id/detail"
     app:startDestination="@id/repoDetail">
 
-    <dialog
+    <fragment
         android:id="@+id/repoDetail"
-        android:name="com.ileitelabs.trends.ui.RepoDetailFragment"
+        android:name="com.ileitelabs.trends.presentation.RepoDetailFragment"
         android:label="Detail">
 
         <deepLink app:uri="repoTrends://detail/{repositoryName}/{ownerName}" />
@@ -16,6 +16,6 @@
         <argument
             android:name="ownerName"
             app:argType="string" />
-    </dialog>
+    </fragment>
 
 </navigation>

@@ -1,4 +1,4 @@
-package com.ileitelabs.trends.ui.viewmodel
+package com.ileitelabs.trends.presentation.viewmodel
 
 internal sealed class RepositoryDetailViewAction {
     object FetchData : RepositoryDetailViewAction()

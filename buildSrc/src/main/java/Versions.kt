@@ -40,6 +40,7 @@ object Versions {
 
     //Coil
     const val coil_version = "1.4.0"
+    const val coil_compose_version = "2.0.0-rc02"
 
     // Test libs versions
     const val junit_version = "5.5.2"

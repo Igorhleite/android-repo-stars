@@ -6,9 +6,9 @@ import androidx.paging.LoadState
 import androidx.paging.PagingData
 import com.ileitelabs.home.domain.model.Repository
 import com.ileitelabs.home.domain.usecase.GetTrendingUseCase
-import com.ileitelabs.home.ui.viewmodel.HomeViewAction
-import com.ileitelabs.home.ui.viewmodel.HomeViewModel
-import com.ileitelabs.home.ui.viewmodel.HomeViewState
+import com.ileitelabs.home.presentation.viewmodel.HomeViewAction
+import com.ileitelabs.home.presentation.viewmodel.HomeViewModel
+import com.ileitelabs.home.presentation.viewmodel.HomeViewState
 import com.nhaarman.mockitokotlin2.argumentCaptor
 import com.nhaarman.mockitokotlin2.times
 import kotlinx.coroutines.Dispatchers
