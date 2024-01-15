@@ -13,7 +13,7 @@ import com.ileitelabs.core.ui.viewmodel.onViewAction
 import com.ileitelabs.core.ui.viewmodel.onViewState
 import com.ileitelabs.designsystem.theme.RepoTrendsTheme
 import com.ileitelabs.repotrends.feature.detail.databinding.DetailFragmentRepoBinding
-import com.ileitelabs.trends.presentation.component.DetailContent
+import com.ileitelabs.trends.presentation.component.DetailScreenContent
 import com.ileitelabs.trends.presentation.viewmodel.RepositoryDetailViewAction
 import com.ileitelabs.trends.presentation.viewmodel.RepositoryDetailViewModel
 import com.ileitelabs.trends.presentation.viewmodel.RepositoryDetailViewState
@@ -77,11 +77,11 @@ class RepoDetailFragment : Fragment() {
     private fun manageRepositoryDetail(state: RepositoryDetailViewState) {
         binding.composeView.setContent {
             RepoTrendsTheme {
-                DetailContent(
+                DetailScreenContent(
                     state = state.state,
                     repository = state.data,
-                    onTryAgain = viewModel::onTryAgainClicked,
-                    onAccessRepo = viewModel::onCheckRepoClicked
+                    doRefresh = viewModel::onTryAgainClicked,
+                    onClickAction = viewModel::onCheckRepoClicked
                 )
             }
         }
