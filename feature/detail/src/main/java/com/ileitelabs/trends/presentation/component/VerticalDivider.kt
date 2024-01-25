@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Color
 import com.ileitelabs.designsystem.tokens.dimen.size1
 import com.ileitelabs.designsystem.tokens.dimen.size32
 
-
+//Mover para DS
 @Composable
 fun VerticalDivider() {
     Divider(

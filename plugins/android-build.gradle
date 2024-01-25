@@ -80,6 +80,7 @@ dependencies {
 
     // Paging 3
     implementation(Libs.paging)
+    implementation(Libs.paging_compose)
 
     //Gson
     implementation(Libs.gson)

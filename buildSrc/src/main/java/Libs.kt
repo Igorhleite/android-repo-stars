@@ -56,6 +56,7 @@ object Libs {
 
     //Paging 3
     const val paging = "androidx.paging:paging-runtime-ktx:${Versions.paging_version}"
+    const val paging_compose = "androidx.paging:paging-compose:1.0.0-alpha16"
 
     //Coroutines
     const val coroutines =

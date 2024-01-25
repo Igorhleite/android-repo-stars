@@ -9,4 +9,6 @@ val size12 = 12.dp
 val size16 = 16.dp
 val size24 = 24.dp
 val size32 = 32.dp
+val size80 = 80.dp
+val size100 = 100.dp
 val size200 = 200.dp

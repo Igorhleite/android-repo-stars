@@ -5,22 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.runtime.Composable
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.ileitelabs.core.ui.viewmodel.onViewAction
 import com.ileitelabs.core.ui.viewmodel.onViewState
 import com.ileitelabs.home.domain.model.Repository
-import com.ileitelabs.home.presentation.adapters.RepositoriesAdapter
 import com.ileitelabs.home.presentation.viewmodel.HomeViewAction
 import com.ileitelabs.home.presentation.viewmodel.HomeViewModel
 import com.ileitelabs.navigation.RepoTrendsNavigation
 import com.ileitelabs.repotrends.feature.home.databinding.HomeFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
+import androidx.paging.compose.items
+import com.ileitelabs.home.presentation.component.RepositoryListItem
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -34,12 +39,6 @@ class HomeFragment : Fragment() {
 
     @Inject
     lateinit var navigator: RepoTrendsNavigation
-
-    private val repositoriesAdapter by lazy {
-        RepositoriesAdapter { repository, _ ->
-            viewModel.onRepositoryClicked(repository)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -56,24 +55,31 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initRecycler()
         setTryAgainButtonAction()
-        addLoadStateAdapter()
         addObservables()
     }
 
-    private fun initRecycler() {
-        binding.rcRepositories.apply {
-            adapter = repositoriesAdapter
-            layoutManager = LinearLayoutManager(activity)
-            isVerticalFadingEdgeEnabled = true
-            setFadingEdgeLength(150)
+    private fun initLazyColumn(data: Flow<PagingData<Repository>>?) {
+        binding.composeListView.setContent {
+            data?.let { CharacterList(it) }
+        }
+    }
+
+    @Composable
+    fun CharacterList(repositoryFlow: Flow<PagingData<Repository>>) {
+
+        val lazyRepository: LazyPagingItems<Repository> = repositoryFlow.collectAsLazyPagingItems()
+
+        LazyColumn {
+            items(lazyRepository) { repository ->
+                RepositoryListItem(repository)
+            }
         }
     }
 
     private fun addObservables() {
         onViewState(viewModel) { state ->
-            manageRepositoryList(state.data)
+            initLazyColumn(state.data)
             manageLoading(state.hasLoading)
             manageError(state.emptyDataError, state.refreshDataError)
         }
@@ -106,24 +112,9 @@ class HomeFragment : Fragment() {
         binding.pbProgress.isVisible = hasLoading
     }
 
-    private fun manageRepositoryList(repositories: PagingData<Repository>?) {
-        repositories?.let {
-            repositoriesAdapter.submitData(lifecycle, it)
-        }
-    }
-
     private fun setTryAgainButtonAction() {
         binding.screenError.onClickTryAgainButton {
             viewModel.onTryAgainClicked()
-        }
-    }
-
-    private fun addLoadStateAdapter() {
-        repositoriesAdapter.addLoadStateListener {
-            viewModel.manageAdapterLoadStates(
-                loadState = it.refresh,
-                isAdapterEmpty = repositoriesAdapter.itemCount == 0
-            )
         }
     }
 }

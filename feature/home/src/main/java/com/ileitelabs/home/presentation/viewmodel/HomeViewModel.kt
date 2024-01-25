@@ -9,6 +9,7 @@ import com.ileitelabs.home.domain.model.Repository
 import com.ileitelabs.home.domain.usecase.GetTrendingUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,14 +26,14 @@ internal class HomeViewModel @Inject constructor(
 
     fun obtainRepositories() {
         viewModelScope.launch {
-            useCase()
+            val repositories = useCase()
                 .cachedIn(viewModelScope)
                 .flowOn(dispatcher)
-                .collect(::handleOnSuccess)
+            handleOnSuccess(repositories)
         }
     }
 
-    private fun handleOnSuccess(repoTrendingList: PagingData<Repository>) {
+    private fun handleOnSuccess(repoTrendingList: Flow<PagingData<Repository>>) {
         onState {
             it.copy(
                 data = repoTrendingList,
